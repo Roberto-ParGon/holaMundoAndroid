@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HolaMundo</string>
+    <string name="contentDescription">Cat Image</string>
+    <string name="labelText">Inicio de sesión</string>
+    <string name="lbGoActivity2">Ir a Activity2</string>
+    <string name="lbPorcentaje">El porcentaje es:</string>
+    <string name="lbPercent">0%</string>
+    <string name="lbUser">Usuario:</string>
+    <string name="lbPass">Contraseña:</string>
+    <string name="lbApodo">Apodo:</string>
+    <string name="Activity2Ins">¿Qué desea guardar?:</string>
+    <string name="lbSongs">Canciones</string>
+    <string name="lbMovies">Peliculas</string>
+    <string name="lbWelcome">Bienvenido, %1$s</string>
+</resources>
