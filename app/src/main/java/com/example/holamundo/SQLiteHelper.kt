@@ -1,5 +1,6 @@
 package com.example.holamundo
 
+import android.content.ClipData.Item
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -10,15 +11,19 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, "SongsDB", null
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("CREATE TABLE canciones(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, cantante TEXT)")
     }
-git a
+
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS canciones")
         onCreate(db)
     }
 
     fun retrieveSong(): Cursor {
-        val db = readableDatabase
-        return db.rawQuery("SELECT id AS _id, nombre, cantante FROM canciones", null)
+        return readableDatabase.rawQuery("SELECT id AS _id, nombre, cantante FROM canciones", null)
+/*
+        while (cursor.moveToNext()) {
+            val id = cursor.getLong(cursor.getColumnIndex("_id"))
+        }
+  */
     }
 
     fun saveSong(name: String, author: String): Long {
@@ -30,6 +35,11 @@ git a
         val id = db.insert("canciones", null, values)
         db.close()
         return id
+    }
+
+    fun deleteSong(id: Long): Int {
+        return writableDatabase.delete("canciones", "id=?", arrayOf(id.toString()))
+        //dbHelper.deleteSong(5)
     }
 
 
