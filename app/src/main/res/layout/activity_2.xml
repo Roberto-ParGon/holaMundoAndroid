@@ -6,48 +6,60 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".Activity2">
 
     <TextView
         android:id="@+id/lbWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="56dp"
         android:text="Bienvenido"
         android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="16dp"
         android:text="@string/Activity2Ins"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbWelcome" />
+        app:layout_constraintTop_toBottomOf="@id/lbWelcome" />
 
-    <Button
-        android:id="@+id/btnSongs"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/lbSongs"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/btnMovies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
         android:layout_marginTop="48dp"
-        android:text="@string/lbMovies"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:spacing="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSongs" />
+        app:layout_constraintTop_toBottomOf="@id/textView">
+
+        <Button
+            android:id="@+id/btnSongs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="200dp"
+            android:text="@string/lbSongs"
+            style="@style/Widget.AppCompat.Button.Colored" />
+
+        <Button
+            android:id="@+id/btnMovies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="200dp"
+            android:text="@string/lbMovies"
+            style="@style/Widget.AppCompat.Button.Colored" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

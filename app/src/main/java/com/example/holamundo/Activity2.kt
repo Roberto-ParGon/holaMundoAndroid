@@ -37,7 +37,7 @@ class Activity2 : AppCompatActivity() {
         }
 
         btnMovies.setOnClickListener {
-            val intentMovies = Intent(this, ActivityMovies::class.java)
+            val intentMovies = Intent(this, ActivityFormMovies::class.java)
             startActivity(intentMovies)
         }
     }
