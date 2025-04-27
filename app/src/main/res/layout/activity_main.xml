@@ -46,7 +46,7 @@
             android:layout_height="51dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="@string/lbUser"
+            android:hint="Alessandra"
             android:inputType="text"/>
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="@string/lbPass"
+            android:hint="Reyes123"
             android:inputType="text"/>
 
         <TextView
@@ -78,7 +78,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/lbApodo"
+            android:hint="Apodo"
             android:inputType="text"/>
     </LinearLayout>
 
