@@ -11,7 +11,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.Firebase
 import com.google.firebase.database.FirebaseDatabase
 
 class ActivityFormMovies : AppCompatActivity() {
@@ -25,7 +24,7 @@ class ActivityFormMovies : AppCompatActivity() {
             insets
         }
 
-        val movieTittle = findViewById<EditText>(R.id.etMovieTittle).text.toString()
+        val movieTittle = findViewById<EditText>(R.id.etMovieTittle)
         val movieCategory = findViewById<Spinner>(R.id.spMovieGenre)
         val saveMovie = findViewById<Button>(R.id.btnSaveMovie)
         val categories =
@@ -34,10 +33,11 @@ class ActivityFormMovies : AppCompatActivity() {
         movieCategory.adapter = adapter
 
         saveMovie.setOnClickListener {
+            val selectedTittle = movieTittle.text.toString()
             val selectedCategory = movieCategory.selectedItem.toString()
             val db = FirebaseDatabase.getInstance().getReference("movies")
             val id = db.push().key
-            val movie = Movie(id, movieTittle, selectedCategory)
+            val movie = Movie(id, selectedTittle, selectedCategory)
             if (id != null) {
                 db.child(id).setValue(movie).addOnSuccessListener {
                     Toast.makeText(this, "Película guardada exitosamente", Toast.LENGTH_SHORT)

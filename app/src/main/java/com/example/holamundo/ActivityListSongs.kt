@@ -37,9 +37,19 @@ class ActivityListSongs : AppCompatActivity() {
         )
 
         listView.adapter = adapter
-        
+        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, _, id ->
+            dbHelper.deleteSong(id)
+
+            val newCursor = dbHelper.retrieveSong()
+            (listView.adapter as SimpleCursorAdapter).changeCursor(newCursor)
+
+            true
+        }
+
+
 
     }
+
 
 
 }
