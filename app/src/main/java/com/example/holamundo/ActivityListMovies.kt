@@ -26,9 +26,9 @@ class ActivityListMovies : AppCompatActivity() {
         val movieList = findViewById<ListView>(R.id.lvMovies)
         val movies = ArrayList<Map<String, String>>()
         val db = FirebaseDatabase.getInstance().getReference("movies")
-        db.addValueEventListener(object : ValueEventListener{
+        db.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                for (movie in snapshot.children){
+                for (movie in snapshot.children) {
                     val movieData = movie.getValue(Movie::class.java)
                     if (movieData != null) {
                         val map = HashMap<String, String>()
@@ -46,13 +46,9 @@ class ActivityListMovies : AppCompatActivity() {
                 )
                 movieList.adapter = adapter
             }
-
             override fun onCancelled(error: DatabaseError) {
-                println("Error recuperando información de las películas:${error.message}" )
+                println("Error recuperando información de las películas:${error.message}")
             }
-
         })
-
-
     }
 }

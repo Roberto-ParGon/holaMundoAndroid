@@ -24,15 +24,12 @@ class ActivityListSongs : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.listView)
         dbHelper = SQLiteHelper(this)
-        val cursor = dbHelper.retrieveSong()
-        val retrieveColumns = arrayOf("nombre", "cantante")
-        val toViews = intArrayOf(android.R.id.text1, android.R.id.text2)
         val adapter = SimpleCursorAdapter(
             this,
             android.R.layout.simple_list_item_2,
-            cursor,
-            retrieveColumns,
-            toViews,
+            dbHelper.retrieveSong(),
+            arrayOf("nombre", "cantante"),
+            intArrayOf(android.R.id.text1,android.R.id.text2),
             0
         )
 

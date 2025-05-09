@@ -1,6 +1,5 @@
 package com.example.holamundo
 
-import android.content.ClipData.Item
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -17,15 +16,6 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, "SongsDB", null
         onCreate(db)
     }
 
-    fun retrieveSong(): Cursor {
-        return readableDatabase.rawQuery("SELECT id AS _id, nombre, cantante FROM canciones", null)
-/*
-        while (cursor.moveToNext()) {
-            val id = cursor.getLong(cursor.getColumnIndex("_id"))
-        }
-  */
-    }
-
     fun saveSong(name: String, author: String): Long {
         val values = ContentValues().apply {
             put("nombre", name)
@@ -37,10 +27,11 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, "SongsDB", null
         return id
     }
 
-    fun deleteSong(id: Long): Int {
-        return writableDatabase.delete("canciones", "id=?", arrayOf(id.toString()))
-        //dbHelper.deleteSong(5)
+    fun retrieveSong(): Cursor {
+        return readableDatabase.rawQuery("SELECT id AS _id, nombre, cantante FROM canciones", null)
     }
 
-
+    fun deleteSong(id: Long): Int {
+        return writableDatabase.delete("canciones", "id=?", arrayOf(id.toString()))
+    }
 }

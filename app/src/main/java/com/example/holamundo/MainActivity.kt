@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             val pass = tfPass.text.toString()
             val apodo = tfApodo.text.toString()
 
-            if(user == "1" && pass == "1"){
+            if(user == "Alessandra" && pass == "Reyes123"){
 
                 val mySharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE)
                 with(mySharedPreferences.edit()){
